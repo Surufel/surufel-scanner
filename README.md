@@ -43,3 +43,4 @@ There are two methods. You can install it via the installer **or** do the follow
 9. Turn scandirs into a button or two.
 10. Hash.
 11. TensorFlow.
+12. PostgreSQL.
