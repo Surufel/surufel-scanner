@@ -40,3 +40,6 @@ There are two methods. You can install it via the installer **or** do the follow
 6. Test on a Windows and Linux machine.
 7. Write Quick Start instructions for Windows and Linux machine.
 8. Turn reload into a button.
+9. Turn scandirs into a button or two.
+10. Hash.
+11. TensorFlow.

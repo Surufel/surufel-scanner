@@ -51,8 +51,8 @@ class SurufelCore:
         dirs = os.listdir(path)
 
         for files in dirs:
-            self.filesScannedCount = self.filesScannedCount + 1
             if (self.fileScanner(files)) is None:
+                self.filesScannedCount = self.filesScannedCount + 1
                 fileScannedMessage = files + " might be clean."
                 print(fileScannedMessage)
                 countMessage = "\nFiles counted: " + str(self.filesScannedCount)
@@ -65,8 +65,8 @@ class SurufelCore:
         dirs = os.listdir(".")
 
         for files in dirs:
-            self.filesScannedCount = self.filesScannedCount + 1
             if (not files.startswith('.')) and ((self.fileScanner(files)) is None):
+                self.filesScannedCount = self.filesScannedCount + 1
                 fileScannedMessage = files + " might be clean."
                 print(fileScannedMessage)
                 countMessage = "\nFiles counted: " + str(self.filesScannedCount)
