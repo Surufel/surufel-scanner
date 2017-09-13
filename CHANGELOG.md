@@ -24,5 +24,8 @@
 - list_files.py
 
 ## 1.002
-###
--
+### Added
+- Scan directory methods
+
+### Changed
+- Reboot

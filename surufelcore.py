@@ -14,7 +14,7 @@ from tkinter import messagebox
 
 class SurufelCore:
     '''A Surufel core that does the magic.'''
-    version = 1.001
+    version = 1.002
     filesScannedCount = 0
 
     def __init__(self):
@@ -42,20 +42,42 @@ class SurufelCore:
         messagebox.showinfo("Version", versionMessage)
 
     def fileScanner(self, file):
-	    return self.scanner.scan_file(file)
+        '''This will return the file with its absolute path.'''
+        return self.scanner.scan_file(os.path.abspath(file))
 
-    #def scanCurrentDirectory(self):
+    def scanCurrentDirectory(self):
+        '''This will scan the current directory.'''
+        path = "."
+        dirs = os.listdir(path)
 
+        for files in dirs:
+            self.filesScannedCount = self.filesScannedCount + 1
+            if (self.fileScanner(files)) is None:
+                fileScannedMessage = files + " might be clean."
+                print(fileScannedMessage)
+                countMessage = "\nFiles counted: " + str(self.filesScannedCount)
 
-    def traverse(self):
-        # Optimize with list_files.py
-        for root, dirs, files in os.walk(".", topdown=False):
-            for name in files:
-                print(os.path.join(root, name))
-        #for name in dirs:
-        #    print(os.path.join(root, name))
+        print(countMessage)
+        self.filesScannedCount = 0
+
+    def scanCurrentDirectoryNoHidden(self):
+        '''This will scan the current directory sans hidden files or directories.'''
+        dirs = os.listdir(".")
+
+        for files in dirs:
+            self.filesScannedCount = self.filesScannedCount + 1
+            if (not files.startswith('.')) and ((self.fileScanner(files)) is None):
+                fileScannedMessage = files + " might be clean."
+                print(fileScannedMessage)
+                countMessage = "\nFiles counted: " + str(self.filesScannedCount)
+
+        print(countMessage)
+        self.filesScannedCount = 0
+
+        # I could combine the two scanCurrentDirectory methods with the use of an additional parameter but I wanted to use startswith(). Backburner.
 
     def scannerMainframe(self):
+        '''The GUI.'''
         front = tkinter.Tk()
 
         # Title
@@ -79,7 +101,9 @@ class SurufelCore:
 
 def main():
     firstRun = SurufelCore()
-    firstRun.scannerMainframe()
+    #firstRun.scannerMainframe()
+    firstRun.scanCurrentDirectory()
+    firstRun.scanCurrentDirectoryNoHidden()
 
 if __name__ == '__main__':
     main()
