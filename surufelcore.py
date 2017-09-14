@@ -4,6 +4,8 @@ import sys
 import pyclamd
 import os
 
+import psycopg2
+
 # Python 2
 #import Tkinter
 #import tkMessageBox

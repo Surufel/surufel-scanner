@@ -15,7 +15,7 @@ There are two methods. You can install it via the installer **or** do the follow
 
 1. Make sure you have Python (3) and pip installed.
 2. Make sure you have installed [ClamAV](https://www.clamav.net).
-3. `pip3 install pyclamd`
+3. `pip3 install pyclamd` and `pip3 install psycopg2`
 4. In /usr/local/etc/clamav, rename clamd.conf.sample to clamd.conf. Rename freshclam.conf.sample to clamd.conf.
 5. In the two files, comment out "Example."
 6. For clamd.conf:
@@ -44,3 +44,7 @@ There are two methods. You can install it via the installer **or** do the follow
 10. Hash.
 11. TensorFlow.
 12. PostgreSQL.
+
+### Credit
+
+1. virussignatures.strings from http://www.nlnetlabs.nl/downloads/antivirus/antivirus/virussignatures.strings
