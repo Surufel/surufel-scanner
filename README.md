@@ -30,7 +30,6 @@ This part is being edited as I write the installer. So don't be too reliant on i
 ### AUTHORS
 
 * [Sifer Aseph](https://github.com/Surufel)
-* [Ayush Byat](https://github.com/AyushBhat) (for list_files.py)
 
 ### TODO
 

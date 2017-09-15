@@ -1,5 +1,6 @@
 # https://github.com/Surufel/surufel-scanner
 
+from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
@@ -14,7 +15,7 @@ setup(
     version = '1.3',
 
     description = 'An AV for lab use',
-    long_description = long_description
+    long_description = long_description,
 
     url = 'http://www.surufel.com',
 
@@ -35,7 +36,28 @@ setup(
         'Programming Language :: Python :: 3',
     ],
 
-    keywords = 'antivirus malware analysis lab'
+    keywords = ['antivirus', 'malware analysis', 'lab']
 
+    #packages = find_packages(exclude=['contrib', 'docs', 'tests']),
+    # Or
+    #py_modules=["my_module"],
 
+    install_requires=[''],
+
+    #extras_require={
+    #    'dev': ['check-manifest'],
+    #    'test': ['coverage'],
+    #},
+
+    #package_data={
+    #    'sample': ['package_data.dat'],
+    #},
+
+    #data_files=[('my_data', ['data/data_file'])],
+
+    #entry_points={
+    #    'console_scripts': [
+    #        'sample=sample:main',
+    #    ],
+    #},
 )

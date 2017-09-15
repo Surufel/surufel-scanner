@@ -1,8 +1,10 @@
 # https://github.com/Surufel/surufel-scanner
 
 import sys
-import pyclamd
 import os
+
+import pyclamd
+import virus_total_apis
 
 import psycopg2
 
@@ -13,6 +15,9 @@ import psycopg2
 # Python 3
 import tkinter
 from tkinter import messagebox
+
+class CustomCore:
+    pass
 
 class SurufelCore:
     '''A Surufel core that does the magic.'''
@@ -104,6 +109,9 @@ class SurufelCore:
 def main():
     firstRun = SurufelCore()
     #firstRun.scannerMainframe()
+
+    firstCustomRun = CustomCore()
+    #
 
 if __name__ == '__main__':
     main()
