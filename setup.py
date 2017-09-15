@@ -23,8 +23,19 @@ setup(
 
     license = 'GNU',
 
+    # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers = [
         'Development Status :: 2 - Pre-Alpha',
-        
-    ]
+
+        'Intended Audience :: Other Audience',
+        'Topic :: Security',
+
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+
+        'Programming Language :: Python :: 3',
+    ],
+
+    keywords = 'antivirus malware analysis lab'
+
+
 )
