@@ -18,6 +18,13 @@ setup(
 
     url = 'http://www.surufel.com',
 
-    author = 'Sifer Aseph'
-    
+    author = 'Sifer Aseph',
+    author_email = 'sifer.aseph@nyu.edu',
+
+    license = 'GNU',
+
+    classifiers = [
+        'Development Status :: 2 - Pre-Alpha',
+        
+    ]
 )
