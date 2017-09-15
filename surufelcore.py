@@ -16,7 +16,7 @@ from tkinter import messagebox
 
 class SurufelCore:
     '''A Surufel core that does the magic.'''
-    version = 1.002
+    version = 1.3
     filesScannedCount = 0
 
     def __init__(self):
@@ -104,8 +104,6 @@ class SurufelCore:
 def main():
     firstRun = SurufelCore()
     #firstRun.scannerMainframe()
-    firstRun.scanCurrentDirectory()
-    firstRun.scanCurrentDirectoryNoHidden()
 
 if __name__ == '__main__':
     main()

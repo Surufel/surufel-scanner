@@ -25,6 +25,8 @@ There are two methods. You can install it via the installer **or** do the follow
 8. Run `sudo /usr/local/sbin/clamd`.
 9. Enjoy!
 
+This part is being edited as I write the installer. So don't be too reliant on it.
+
 ### AUTHORS
 
 * [Sifer Aseph](https://github.com/Surufel)
@@ -41,9 +43,10 @@ There are two methods. You can install it via the installer **or** do the follow
 7. Write Quick Start instructions for Windows and Linux machine.
 8. Turn reload into a button.
 9. Turn scandirs into a button or two.
-10. Hash.
-11. TensorFlow.
-12. PostgreSQL.
+10. Hash
+11. TensorFlow
+12. PostgreSQL
+13. setuptools_scm
 
 ### Credit
 

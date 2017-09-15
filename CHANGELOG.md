@@ -29,3 +29,8 @@
 
 ### Changed
 - Reboot
+
+## 1.3
+### Changed
+- Trying to adhere to PEP 440. May have to use a tool, maybe not.
+- Packaging, may use setuptools_scm or something. 
