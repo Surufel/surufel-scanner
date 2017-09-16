@@ -39,3 +39,8 @@
 ### Added
 - Started working with virustotal-api
 - CustomCore class
+
+## 1.5
+### Changed
+- I made the GUI a little more pretty.
+- Added more buttons (update, scan).

@@ -42,7 +42,7 @@ setup(
     # Or
     #py_modules=["my_module"],
 
-    install_requires=[''],
+    install_requires=['pyclamd', 'psycopg2', 'virustotal-api'],
 
     #extras_require={
     #    'dev': ['check-manifest'],

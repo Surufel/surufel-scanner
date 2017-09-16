@@ -13,17 +13,15 @@ GNU General Public License v3.0
 This instruction works for Mac. Its equivalent should work for Linux and Windows but if there is any problem, please let me know.
 There are two methods. You can install it via the installer **or** do the following:
 
-1. Make sure you have Python (3) and pip installed.
-2. Make sure you have installed [ClamAV](https://www.clamav.net).
-3. `pip3 install pyclamd` and `pip3 install psycopg2`
-4. In /usr/local/etc/clamav, rename clamd.conf.sample to clamd.conf. Rename freshclam.conf.sample to clamd.conf.
-5. In the two files, comment out "Example."
-6. For clamd.conf:
+1. Make sure you have installed [ClamAV](https://www.clamav.net).
+2. In /usr/local/etc/clamav, rename clamd.conf.sample to clamd.conf. Rename freshclam.conf.sample to clamd.conf.
+3. In the two files, comment out "Example."
+4. For clamd.conf:
     * LocalSocket /tmp/clamd.socket
     * TCPSocket 3310
-7. Run `freshclam`.
-8. Run `sudo /usr/local/sbin/clamd`.
-9. Enjoy!
+5. Run `freshclam`.
+6. Run `sudo /usr/local/sbin/clamd`.
+7. Enjoy!
 
 This part is being edited as I write the installer. So don't be too reliant on it.
 
@@ -46,6 +44,7 @@ This part is being edited as I write the installer. So don't be too reliant on i
 11. TensorFlow
 12. PostgreSQL
 13. setuptools_scm
+14. http://www.tkdocs.com/tutorial/menus.html#platformmenus (this will come much later, I need a Windows machine to develop and test this on)
 
 ### Credit
 
