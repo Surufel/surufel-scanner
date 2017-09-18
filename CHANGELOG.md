@@ -44,3 +44,8 @@
 ### Changed
 - I made the GUI a little more pretty.
 - Added more buttons (update, scan).
+
+## 1.6
+### Changed
+- Made a lot of changes to README, since I've crossed out a lot of items on the TODO list.
+- Changed CustomCore to SiferCore

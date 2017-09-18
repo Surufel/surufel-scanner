@@ -23,7 +23,7 @@ There are two methods. You can install it via the installer **or** do the follow
 6. Run `sudo /usr/local/sbin/clamd`.
 7. Enjoy!
 
-This part is being edited as I write the installer. So don't be too reliant on it.
+This part is being edited as I write the installer. So don't be too reliant on it. py2 is not supported because it has too many conflicting issues (i.e.: unicode). So.. I do not support use with py2.
 
 ### AUTHORS
 
@@ -31,20 +31,17 @@ This part is being edited as I write the installer. So don't be too reliant on i
 
 ### TODO
 
-1. Develop installer.
-2. Double clicking on an icon should start app.
-3. Typing "surufel" should start app.
-4. The files in data are tentative.
-5. The license might be tentative.
-6. Test on a Windows and Linux machine.
-7. Write Quick Start instructions for Windows and Linux machine.
-8. Turn reload into a button.
-9. Turn scandirs into a button or two.
-10. Hash
-11. TensorFlow
-12. PostgreSQL
-13. setuptools_scm
-14. http://www.tkdocs.com/tutorial/menus.html#platformmenus (this will come much later, I need a Windows machine to develop and test this on)
+1. icon for app
+2. Test on a Windows and Linux machine.
+3. browse button
+4. Hash
+5. TensorFlow
+6. PostgreSQL
+7. setuptools_scm
+8. http://www.tkdocs.com/tutorial/menus.html#platformmenus (this will come much later, I need a Windows machine to develop and test this on)
+9. https://www.athenic.net/posts/2017/Jan/21/preventing-sql-injection-in-python/ I'm aware. Just need time to do the other stuff first.
+10. list of things I need to take care of that are foundational to SiferCore: need access to kernel APIs, watch (process, threads, image files such as DLLs, filesystems), userland protection and self protection, and the analysis engine itself
+11. web-based scanner? need to discuss this because that would mean even more ambitious goal plus I have to worry about against me via web
 
 ### Credit
 

@@ -16,8 +16,13 @@ import psycopg2
 import tkinter
 from tkinter import messagebox
 
-class CustomCore:
+# I do not want to support py2. Just a warning.
+
+class SiferCore:
     '''A Surufel '''
+    def __init__(self):
+        pass
+
     def startHere():
         pass
 
@@ -25,11 +30,14 @@ class CustomCore:
         pass
 
     def scan():
+        # create traverse function?
+        # scan each file based on criteria in db from connect()
+
         pass
 
 class SurufelCore:
     '''A Surufel core that does the magic.'''
-    version = 1.3
+    version = 1.6
     filesScannedCount = 0
 
     def __init__(self):
@@ -95,11 +103,11 @@ class SurufelCore:
         '''The GUI.'''
         # Root
         front = tkinter.Tk()
-        front.geometry('650x300+0+0')
+        front.geometry('650x400+0+0')
         front.title("Surufel Scanner")
 
         # Frames
-        frame1 = tkinter.Frame(front, bg='#8B7B8B', width=50, height=300, padx=0, pady=0)
+        frame1 = tkinter.Frame(front, bg='#8B7B8B', width=50, height=400, padx=0, pady=0)
         frame1.pack(side='left', expand=0, fill='both')
 
         logo = tkinter.Label(frame1, font='Arial 30 bold', text="Surufel", bg='#8B7B8B', fg='white', height=3, width=10, padx=10, pady=0, borderwidth=2) #relief='groove'
@@ -120,12 +128,21 @@ class SurufelCore:
         quitButton = tkinter.Button(frame1, highlightbackground='#8B7B8B', text="Quit", width=25, command=quit)
         quitButton.pack()
 
-        frame2 = tkinter.Frame(front, bg='#ffffff', width=600, height=300, padx=10, pady=10)
+        frame2 = tkinter.Frame(front, bg='#ffffff', width=600, height=400, padx=0, pady=0)
         frame2.pack(side='right', expand=1, fill='both')
 
-        message = "Program Information\n" + "Setting the scanner...\n"
-        theFrontMessage = tkinter.Message(frame2, text=message)
-        theFrontMessage.pack(side='left')
+        title = "Scanner"
+        theTitle = tkinter.Label(frame2, justify='left', width=600, height=2, text=title)
+        theTitle.pack(fill='both')
+
+        output = ": Program Information"
+        theOutput = tkinter.Message(frame2, bg='blue', width=600, text=output)
+        theOutput.pack(side='top', fill='both')
+
+        #http://python-future.org/compatible_idioms.html
+        #http://effbot.org/tkinterbook/tkinter-file-dialogs.htm
+        #http://www.tkdocs.com/tutorial/tree.html
+        #http://effbot.org/tkinterbook/listbox.htm
 
         # Loop
         front.mainloop()
@@ -138,7 +155,7 @@ def main():
     firstRun = SurufelCore()
     firstRun.scannerMainframe()
 
-    #firstCustomRun = CustomCore()
+    #firstSiferRun = SiferCore()
     #
 
 if __name__ == '__main__':
