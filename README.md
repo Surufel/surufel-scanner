@@ -33,7 +33,6 @@ This part is being edited as I write the installer. So don't be too reliant on i
 
 1. icon for app
 2. Test on a Windows and Linux machine.
-3. browse button
 4. Hash
 5. TensorFlow
 6. PostgreSQL

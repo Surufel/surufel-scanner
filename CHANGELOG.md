@@ -49,3 +49,11 @@
 ### Changed
 - Made a lot of changes to README, since I've crossed out a lot of items on the TODO list.
 - Changed CustomCore to SiferCore
+
+## 1.7
+### Added
+- Option to scan individual files
+- Added comments to SurufelCore methods
+
+### Changed
+- Many of the methods in SurufelCore now display in the second frame. This makes output (and overall format) more consistent.
