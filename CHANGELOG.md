@@ -57,3 +57,7 @@
 
 ### Changed
 - Many of the methods in SurufelCore now display in the second frame. This makes output (and overall format) more consistent.
+
+## 1.8
+### Changed
+- Caved in and went with ttk anyway.

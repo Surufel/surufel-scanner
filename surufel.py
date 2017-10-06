@@ -15,9 +15,10 @@ import psycopg2
 # Python 3
 import tkinter
 from tkinter import messagebox
-import tkinter.ttk
-
 from tkinter import filedialog
+
+from tkinter import *
+from tkinter.ttk import *
 
 # I do not want to support py2. Just a warning.
 
@@ -41,7 +42,7 @@ class SiferCore:
 
 class SurufelCore:
     '''A Surufel core that does the magic.'''
-    version = 1.7
+    version = 1.8
     filesScannedCount = 0
 
     # Root
@@ -51,11 +52,15 @@ class SurufelCore:
     front.resizable(0,0)
 
     # Frames
-    frame1 = tkinter.Frame(front, bg='#8B7B8B', width=50, height=400, padx=0, pady=0)
+    frame1 = tkinter.Frame(front, bg='#ECECEC', width=50, height=400, padx=0, pady=0)
     frame1.pack(side='left', expand=0, fill='both')
 
-    frame2 = tkinter.Frame(front, bg='#ffffff', width=600, height=400, padx=0, pady=0)
+    frame2 = tkinter.Frame(front, bg='white', width=600, height=400, padx=0, pady=0)
     frame2.pack(side='right', expand=1, fill='both')
+
+    style = tkinter.ttk.Style()
+    style.configure("TButton", foreground="black", background="#8B7B8B", width=26)
+    style.theme_use('aqua')
 
     def __init__(self):
         if sys.platform == "darwin":
@@ -73,12 +78,6 @@ class SurufelCore:
         elif sys.platform == "win32":
             # One day.
             pass
-
-    def browseFilesToScan(self):
-        ''' Select file to scan. '''
-        fileName = filedialog.askopenfilename(title = "Select file", filetypes=(("Image files","*.mp4"), ("All files", "*.*")))
-
-        print(fileName)
 
     def reloadCallback(self):
         ''' Reload ClamAV related files. '''
@@ -99,6 +98,15 @@ class SurufelCore:
         '''This will return the file with its absolute path.'''
         return self.scanner.scan_file(os.path.abspath(file))
 
+    def browseFilesToScan(self):
+        ''' Select file to scan. '''
+        fileName = filedialog.askopenfilename(title = "Select file", filetypes=())
+        scanMessage = fileName + " might be clean."
+        if (self.fileScanner(fileName)) is None:
+            scanOutput = tkinter.Message(self.frame2, bg='white', width=400, text=scanMessage)
+            scanOutput.pack(side='top', fill='both')
+        scanOutput.after(5000, scanOutput.pack_forget)
+
     def scanCurrentDirectory(self):
         '''This will scan the current directory.'''
         path = "."
@@ -116,8 +124,8 @@ class SurufelCore:
         countOutput = tkinter.Message(self.frame2, bg='white', width=400, text=countMessage)
         countOutput.pack(side='top', fill='both')
         self.filesScannedCount = 0
-        currentDirectory.after(30000, currentDirectory.pack_forget)
-        countOutput.after(30000, countOutput.pack_forget)
+        currentDirectory.after(15000, currentDirectory.pack_forget)
+        countOutput.after(15000, countOutput.pack_forget)
 
     def scanCurrentDirectoryNoHidden(self):
         '''This will scan the current directory sans hidden files or directories.'''
@@ -135,8 +143,8 @@ class SurufelCore:
         countOutput = tkinter.Message(self.frame2, bg='white', width=400, text=countMessage)
         countOutput.pack(side='top', fill='both')
         self.filesScannedCount = 0
-        currentDirectoryNoHid.after(30000, currentDirectoryNoHid.pack_forget)
-        countOutput.after(30000, countOutput.pack_forget)
+        currentDirectoryNoHid.after(15000, currentDirectoryNoHid.pack_forget)
+        countOutput.after(15000, countOutput.pack_forget)
 
         # I could combine the two scanCurrentDirectory methods with the use of an additional parameter but I wanted to use startswith(). Backburner.
 
@@ -151,25 +159,31 @@ class SurufelCore:
         #frame1 = tkinter.Frame(front, bg='#8B7B8B', width=50, height=400, padx=0, pady=0)
         #frame1.pack(side='left', expand=0, fill='both')
 
-        logo = tkinter.Label(self.frame1, font='Arial 30 bold', text="Surufel", bg='#8B7B8B', fg='white', height=3, width=10, padx=10, pady=0, borderwidth=2) #relief='groove'
+        logo = tkinter.Label(self.frame1, font='Arial 30 bold', text="Surufel", bg='#ECECEC', fg='black', height=3, width=10, padx=10, pady=0, borderwidth=2) #relief='groove'
         logo.pack()
 
-        browse = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Scan File", width=25, command=self.browseFilesToScan)
+        #browse = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Scan File", width=25, command=self.browseFilesToScan)
+        browse = tkinter.ttk.Button(self.frame1, style="TButton", text="Scan File", command=self.browseFilesToScan)
         browse.pack()
 
-        scanCurDir = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Scan Currect Directory", width=25, command=self.scanCurrentDirectory)
+        #scanCurDir = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Scan Currect Directory", width=25, command=self.scanCurrentDirectory)
+        scanCurDir = tkinter.ttk.Button(self.frame1, style="TButton", text="Scan Current Directory", command=self.scanCurrentDirectory)
         scanCurDir.pack()
 
-        scanCurDirNoHid = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Scan Currect Directory (No Hidden)", width=25, command=self.scanCurrentDirectoryNoHidden)
+        #scanCurDirNoHid = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Scan Currect Directory (No Hidden)", width=25, command=self.scanCurrentDirectoryNoHidden)
+        scanCurDirNoHid = tkinter.ttk.Button(self.frame1, style="TButton", text="Scan Current Directory (No Hidden)", command=self.scanCurrentDirectoryNoHidden)
         scanCurDirNoHid.pack()
 
-        reloadButton = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Reload", width=25, command=self.reloadCallback)
+        #reloadButton = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Reload", width=25, command=self.reloadCallback)
+        reloadButton = tkinter.ttk.Button(self.frame1, style="TButton", text="Reload", command=self.reloadCallback)
         reloadButton.pack()
 
-        versionButton = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Version", width=25, command=self.versionCallback)
+        #versionButton = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Version", width=25, command=self.versionCallback)
+        versionButton = tkinter.ttk.Button(self.frame1, style="TButton", text="Version", command=self.versionCallback)
         versionButton.pack()
 
-        quitButton = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Quit", width=25, command=quit)
+        #quitButton = tkinter.Button(self.frame1, highlightbackground='#8B7B8B', text="Quit", width=25, command=quit)
+        quitButton = tkinter.ttk.Button(self.frame1, style="TButton", text="Quit", command=quit)
         quitButton.pack()
 
         #frame2 = tkinter.Frame(self.front, bg='#ffffff', width=600, height=400, padx=0, pady=0)
@@ -178,20 +192,6 @@ class SurufelCore:
         title = "Scanner"
         theTitle = tkinter.Label(self.frame2, justify='left', width=400, height=2, text=title)
         theTitle.pack(fill='both')
-
-        output = ": Program Information"
-        theOutput = tkinter.Message(self.frame2, bg='blue', width=400, text=output)
-        theOutput.pack(side='top', fill='both')
-
-
-
-        #aSimpleList = tkinter.Listbox(frame2)
-        #aSimpleList.pack()
-
-        #aSimpleList.insert('end', "a list entry")
-
-        #for item in ["one", "two", "three", "four"]:
-        #    aSimpleList.insert('end', item)
 
 
 
@@ -206,7 +206,7 @@ def main():
     firstRun = SurufelCore()
     firstRun.scannerMainframe()
 
-    #firstSiferRun = SiferCore()
+    firstSiferRun = SiferCore()
     #
 
 if __name__ == '__main__':
