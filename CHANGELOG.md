@@ -61,3 +61,8 @@
 ## 1.8
 ### Changed
 - Caved in and went with ttk anyway.
+
+## 1.9
+### Added
+- Connected to the database.
+- Added more functions.

@@ -1,12 +1,19 @@
+# Sifer Aseph
 # https://github.com/Surufel/surufel-scanner
 
 import sys
 import os
+import __future__
+
+import codecs
+import base64
 
 import pyclamd
 import virus_total_apis
 
 import psycopg2
+
+import tensorflow
 
 # Python 2
 #import Tkinter
@@ -21,28 +28,11 @@ from tkinter import *
 from tkinter.ttk import *
 
 # I do not want to support py2. Just a warning.
-
-class SiferCore:
-    '''A Surufel '''
-    def __init__(self):
-        pass
-
-    def startHere():
-        pass
-
-    def connect():
-        ''' Connect to database. '''
-        pass
-
-    def scan():
-        # create traverse function?
-        # scan each file based on criteria in db from connect()
-
-        pass
+# Need to "secure" my code too.
 
 class SurufelCore:
     '''A Surufel core that does the magic.'''
-    version = 1.8
+    version = 1.9
     filesScannedCount = 0
 
     # Root
@@ -59,7 +49,7 @@ class SurufelCore:
     frame2.pack(side='right', expand=1, fill='both')
 
     style = tkinter.ttk.Style()
-    style.configure("TButton", foreground="black", background="#8B7B8B", width=26)
+    style.configure("TButton", foreground="black", background="#8B7B8B", width=25)
     style.theme_use('aqua')
 
     def __init__(self):
@@ -148,6 +138,8 @@ class SurufelCore:
 
         # I could combine the two scanCurrentDirectory methods with the use of an additional parameter but I wanted to use startswith(). Backburner.
 
+    #
+
     def scannerMainframe(self):
         '''The GUI.'''
         # Root
@@ -193,21 +185,88 @@ class SurufelCore:
         theTitle = tkinter.Label(self.frame2, justify='left', width=400, height=2, text=title)
         theTitle.pack(fill='both')
 
-
+        #
 
         # Loop
         self.front.mainloop()
 
         # https://docs.python.org/3.3/library/tkinter.ttk.html
         # https://github.com/RedFantom/ttkthemes
-        # I could use the ttk module but I need to focus on other areas. Backburner.
+        # I could use more of the ttk module but I need to focus on other areas. Backburner.
+
+    #
+
+class SiferCore:
+    '''A Sifer Core that does the magic.'''
+    def __init__(self):
+        pass
+
+    def startHere(self):
+        pass
+
+    def connect(self):
+        ''' Connect to database. '''
+        #**********************************************
+        # databaseConnect goes here:
+
+        #**********************************************
+        connection = psycopg2.connect(databaseConnect)
+        cursor = connection.cursor()
+
+    def scan(self):
+        # create traverse function?
+        # scan each file based on criteria in db from connect()
+
+        pass
+
+    def tools(self):
+        ''' Toys to play with. '''
+        #os.remove(path)
+        #os.geteuid()
+        #os.path.isfile(path)
+        #os.path.isdir(path)
+        #os.getgid()
+        #os.getuid()
+        #os.getpid()
+        #os.getlogin()
+        #os.getsize()
+        #os.uname()
+        #os.listdir(path)
+        #os.path.exists(path)
+        #os.walk(path)
+        # Threads stuff later.
+
+    def convertInput(self, randomString):
+        ''' String to Base64, ROT13 '''
+        menu = ["Base64", "ROT13"]
+
+        print("1. Base64\n2. ROT13")
+        choice = input("Pick: ")
+        if (choice == '1'):
+            converted = base64.b64encode(bytes(randomString, 'utf-8'))
+        elif (choice == '2'):
+            converted = codecs.encode(randomString, 'rot13')
+        else:
+            converted = "Nothing."
+
+        return converted
+
+    def randomStringInput(self):
+        randomString = input("Enter a random string:\n")
+        return randomString
+
+    def portValidity(self, port):
+        ''' Makes sure port number is valid. '''
+        return port > 0 or port < 65535
+
+# I will put SiferCore in another file but that's backburner. I want a little LoC fun.
 
 def main():
-    firstRun = SurufelCore()
-    firstRun.scannerMainframe()
+    #firstRun = SurufelCore()
+    #firstRun.scannerMainframe()
+    #
 
     firstSiferRun = SiferCore()
-    #
 
 if __name__ == '__main__':
     main()

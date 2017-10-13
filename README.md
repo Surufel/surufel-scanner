@@ -20,7 +20,7 @@ There are two methods. You can install it via the installer **or** do the follow
     * LocalSocket /tmp/clamd.socket
     * TCPSocket 3310
 5. Run `freshclam`.
-6. Run `sudo /usr/local/sbin/clamd`.
+6. Run `/usr/local/sbin/clamd` or with sudo if for some reason your system asks for it.
 7. Enjoy!
 
 This part is being edited as I write the installer. So don't be too reliant on it. py2 is not supported because it has too many conflicting issues (i.e.: unicode). So.. I do not support use with py2.
@@ -35,14 +35,13 @@ This part is being edited as I write the installer. So don't be too reliant on i
 2. Test on a Windows and Linux machine.
 4. Hash
 5. TensorFlow
-6. PostgreSQL
 7. setuptools_scm
 8. http://www.tkdocs.com/tutorial/menus.html#platformmenus (this will come much later, I need a Windows machine to develop and test this on)
 9. https://www.athenic.net/posts/2017/Jan/21/preventing-sql-injection-in-python/ I'm aware. Just need time to do the other stuff first.
 10. list of things I need to take care of that are foundational to SiferCore: need access to kernel APIs, watch (process, threads, image files such as DLLs, filesystems), userland protection and self protection, and the analysis engine itself
 11. web-based scanner? need to discuss this because that would mean even more ambitious goal plus I have to worry about against me via web
 12. LoC 200 vs 1000
-13. write application log for scan activities 
+13. write application log for scan activities
 
 ### Credit
 
