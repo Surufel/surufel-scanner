@@ -12,7 +12,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name = 'Surufel Scanner',
 
-    version = '1.9',
+    version = '2.0',
 
     description = 'An AV for lab use',
     long_description = long_description,
@@ -42,7 +42,7 @@ setup(
     # Or
     #py_modules=["my_module"],
 
-    install_requires=['pyclamd', 'psycopg2', 'virustotal-api'],
+    install_requires=['pyclamd', 'psycopg2', 'virustotal-api', 'tensorflow'],
 
     #extras_require={
     #    'dev': ['check-manifest'],

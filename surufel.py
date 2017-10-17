@@ -3,10 +3,12 @@
 
 import sys
 import os
+import time
 import __future__
 
 import codecs
 import base64
+import hashlib
 
 import pyclamd
 import virus_total_apis
@@ -32,7 +34,7 @@ from tkinter.ttk import *
 
 class SurufelCore:
     '''A Surufel core that does the magic.'''
-    version = 1.9
+    version = 2.0
     filesScannedCount = 0
 
     # Root
@@ -251,9 +253,21 @@ class SiferCore:
 
         return converted
 
+    def hashInput(self, randomString):
+        ''' String to hash '''
+        simpleMessage = hashlib.sha256()
+        simpleMessage.update(randomString.encode('utf8')) # converts from unicode / text string to byestring
+        return simpleMessage.digest()
+
     def randomStringInput(self):
         randomString = input("Enter a random string:\n")
         return randomString
+
+    def delayedAction(self, action):
+        while True:
+            # action here is performed every 60 seconds
+            time.sleep(60)
+            break
 
     def portValidity(self, port):
         ''' Makes sure port number is valid. '''
@@ -267,6 +281,7 @@ def main():
     #
 
     firstSiferRun = SiferCore()
+    
 
 if __name__ == '__main__':
     main()

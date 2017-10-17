@@ -65,4 +65,8 @@
 ## 1.9
 ### Added
 - Connected to the database.
-- Added more functions.
+- Added more functions (randomStringInput, convertInput).
+
+## 2.0
+### Added
+- Added more functions (hashInput, delayedAction).
