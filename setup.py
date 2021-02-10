@@ -12,7 +12,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name = 'Surufel Scanner',
 
-    version = '2.0',
+    version = '2.1',
 
     description = 'An AV for lab use',
     long_description = long_description,

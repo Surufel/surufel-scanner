@@ -28,22 +28,20 @@ This part is being edited as I write the installer. So don't be too reliant on i
 ### AUTHORS
 
 * [Sifer Aseph](https://github.com/Surufel)
+* Ayush Bhat
 
 ### TODO
 
-1. icon for app
-2. Test on a Windows and Linux machine.
-3. color theme
-4. Hash
-5. TensorFlow
-7. setuptools_scm
-8. http://www.tkdocs.com/tutorial/menus.html#platformmenus (this will come much later, I need a Windows machine to develop and test this on)
-9. https://www.athenic.net/posts/2017/Jan/21/preventing-sql-injection-in-python/ I'm aware. Just need time to do the other stuff first.
-10. list of things I need to take care of that are foundational to SiferCore: need access to kernel APIs, watch (process, threads, image files such as DLLs, filesystems), userland protection and self protection, and the analysis engine itself
-11. web-based scanner? need to discuss this because that would mean even more ambitious goal plus I have to worry about against me via web
-12. LoC 200 vs 1000
-13. write application log for scan activities
+3. Hash
+4. TensorFlow
+5. setuptools_scm
+6. http://www.tkdocs.com/tutorial/menus.html#platformmenus (this will come much later, I need a Windows machine to develop and test this on)
+7. https://www.athenic.net/posts/2017/Jan/21/preventing-sql-injection-in-python/ I'm aware. Just need time to do the other stuff first.
+8. list of things I need to take care of that are foundational to SiferCore: need access to kernel APIs, watch (process, threads, image files such as DLLs, filesystems), userland protection and self protection, and the analysis engine itself
+9. write application log for scan activities
+10. https://udacity.github.io/git-styleguide/
 
 ### Credit
 
-1. virussignatures.strings from http://www.nlnetlabs.nl/downloads/antivirus/antivirus/virussignatures.strings
+1. Bombermania.exe.zip from http://www.tekdefense.com/downloads/malware-samples/
+2. virussignatures.strings from http://www.nlnetlabs.nl/downloads/antivirus/antivirus/virussignatures.strings

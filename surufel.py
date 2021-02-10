@@ -15,6 +15,8 @@ import virus_total_apis
 
 import psycopg2
 
+
+
 import tensorflow
 
 # Python 2
@@ -281,7 +283,7 @@ def main():
     #
 
     firstSiferRun = SiferCore()
-    
+
 
 if __name__ == '__main__':
     main()

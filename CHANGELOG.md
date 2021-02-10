@@ -70,3 +70,8 @@
 ## 2.0
 ### Added
 - Added more functions (hashInput, delayedAction).
+
+## 2.1
+### 
+-
+-
